@@ -1,0 +1,65 @@
+.hero {
+    display:flex;
+    
+    &-left {
+    width: 712px;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+     & h1{
+        font-size: 100px;
+        font-family: var(--font-family-main);
+        color: var(--primary-orange);
+
+        font-weight: 400;
+        font-style: normal;
+        font-variant: normal;
+        line-height: 89px;
+        letter-spacing: 0%;
+
+     }   
+    & p {
+        display: flex;
+        flex-wrap: wrap;
+        font-family: 'Mulish', sans-serif;
+        font-size: 24px;
+        color: var(--secondary-white);
+        font-weight: 600;
+        font-style: semi-bold;
+    }
+    & button {
+        width: 200px;
+        height: 60px;
+        background-color: var(--secondary-orange);
+        border-radius: 10px;
+        border: none;
+        padding: 12px 16px;
+        font-family: 'Nokora', serif;
+        font-size: 24px;
+        font-weight: 600;
+        font-style: semi-bold;
+        align-self: flex-start;
+        }
+    }
+
+    &-right {
+        width: 508px;
+        height: 380px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & img {
+            width: 508px;
+            height: 380px;
+
+            &:hover {
+                content: url("/assets/images/hero-img-hover.png");
+                transition: all 1s ease;
+            }
+        }
+    }
+
+}

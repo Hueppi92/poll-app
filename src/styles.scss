@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+font-family: "Nerko One";
+src: url("/assets/fonts/Nerko_One/NerkoOne-Regular.ttf") format("truetype");
+font-weight: 400;
+font-style: normal;
+font-display: swap;
+}
+
+@font-face {
+font-family: "Mulish";
+src: url("/assets/fonts/Mulish/static/Mulish-Regular.ttf") format("truetype");
+font-weight: 400;
+font-style: normal;
+font-display: swap;
+}
+@font-face {
+font-family: "Nokora";
+src: url("/assets/fonts/Nokora/static/Nokora-Regular.ttf") format("truetype");
+font-weight: 400;
+font-style: normal;
+font-display: swap;
+}
+
+
+:root {
+    --primary-orange: rgba(255, 183, 112, 1);
+    --secondary-white: rgba(255, 255, 255, 1);
+    --secondary-orange: rgba(255, 207, 161, 1);
+    --font-family-main: 'Nerko One', sans-serif;
+}
+
+body {
+    background-color: rgba(53, 39, 58, 1);
+    max-width: 1220px;
+    margin: 0 auto;
+}
+
