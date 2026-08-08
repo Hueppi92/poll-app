@@ -1,0 +1,28 @@
+section {
+    margin-top: 90px; 
+    display:flex;
+    flex-direction: column;
+    max-width: 1042px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 80px;
+
+    & h1 {
+        font-family: var(--font-family-main);
+        font-size: 72px;
+        color: var(--primary-orange);
+        margin:0;
+        font-weight: 400;
+        align-self:center;
+        margin-bottom: 56px;
+    }
+
+    & p {
+        font-family: 'Mulish', sans-serif;
+        font-size: 32px;
+        color: var(--secondary-white);
+        font-weight: 500;
+        font-style: medium;
+        align-self:flex-start;
+    }
+ }
