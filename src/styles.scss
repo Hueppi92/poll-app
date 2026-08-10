@@ -1,3 +1,5 @@
+
+
 @font-face {
 font-family: "Nerko One";
 src: url("/assets/fonts/Nerko_One/NerkoOne-Regular.ttf") format("truetype");
@@ -35,3 +37,11 @@ body {
     max-width: 1440px;
 }
 
+.preview-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 20px;
+	align-items: stretch;
+	margin-top: 20px;
+}

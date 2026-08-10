@@ -1,0 +1,38 @@
+.preview-card {
+  background-color: #ffffff;
+  color: #1f1f1f;
+  width: 321px;
+  min-height: 310px;
+  border-radius: 0 80px 0 0;
+  padding: 18px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.preview-card-title {
+  margin: 8px 0 0;
+  font-size: 26px;
+  font-family: 'Mulish', sans-serif;
+  font-weight: 700;
+}
+
+.preview-card-category {
+  margin: 0;
+  font-size: 18px;
+  font-family: 'Mulish', sans-serif;
+  color: #4b3f53;
+}
+
+.preview-card-description {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-family: 'Mulish', sans-serif;
+}
+
+.preview-card-footer p {
+  margin: 0;
+  font-size: 15px;
+  font-family: 'Mulish', sans-serif;
+}
