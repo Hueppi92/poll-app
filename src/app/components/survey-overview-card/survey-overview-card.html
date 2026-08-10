@@ -1,12 +1,10 @@
-<article class="preview-card">
-  <div class="preview-card-header">
+<div class="survey-overview-card-header">
     <p class="preview-card-category">{{ preview().category }}</p>
     @if (preview().description) {
       <h2 class="preview-card-description">{{ preview().description }}</h2>
     
     }
   </div>
-  <div class="preview-card-footer">
+  <div class="survey-overview-card-footer">
     <p class="remaining-days-label">{{ remainingDaysLabel() }}</p>
   </div>
-</article>

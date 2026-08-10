@@ -1,0 +1,18 @@
+<section id="survey-section">
+<h1>Your Surveys</h1>
+
+<div class="preview-container">
+  <p>Ending soon surveys</p>
+  <div class="preview-card-container">
+    @if (loading()) {
+      <p>Loading surveys...</p>
+    } @else if (error()) {
+      <p>{{ error() }}</p>
+    } @else {
+      @for (preview of previews(); track preview.id) {
+        <app-preview-card [preview]="preview"></app-preview-card>
+      }
+    }
+  </div>
+</div>
+</section>

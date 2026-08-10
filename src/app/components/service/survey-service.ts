@@ -8,7 +8,7 @@ import type { SurveyPreview } from '../interfaces/survey';
 export class SurveyService {
   private dbService = inject(DbService);
 
-  async getAllSurveys(): Promise<SurveyPreview[]> {
+  async getAllSurvey(): Promise<SurveyPreview[]> {
     const today = new Date().toISOString().split('T')[0];
 
     const { data, error } = await this.dbService.supabase

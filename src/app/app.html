@@ -1,16 +1,5 @@
 <app-header></app-header>
 <app-hero></app-hero>
-
-@if (loading()) {
-	<p>Loading surveys...</p>
-} @else if (error()) {
-	<p>{{ error() }}</p>
-} @else {
-	<section class="preview-container">
-		@for (preview of previews(); track preview.id) {
-			<app-preview-card [preview]="preview"></app-preview-card>
-		}
-	</section>
-}
+<app-preview-container></app-preview-container>
 
 <router-outlet />
