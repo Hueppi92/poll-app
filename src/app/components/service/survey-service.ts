@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { DbService } from './db-service';
-import type { Survey } from '../interfaces/survey';
+import type { Survey, Question } from '../interfaces/survey';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +21,20 @@ export class SurveyService {
     if (error) {
       throw new Error(error.message);
     }
-
+   console.log(data);
     return (data ?? []) as Survey[];
   }
+
+  async getQuestionsBySurveyId(surveyId: number): Promise<Question[]> {
+    const { data, error } = await this.dbService.supabase
+      .from('questions')
+      .select('id, survey_id, answer_count, question_text')
+      .eq('survey_id', surveyId);
+
+    if (error) {
+      throw new Error(error.message);
+    }
+    console.log(data);
+    return (data ?? []) as Question[];  
+}
 }
