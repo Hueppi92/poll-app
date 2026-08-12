@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { DbService } from './db-service';
-import type { SurveyPreview } from '../interfaces/survey';
+import type { Survey } from '../interfaces/survey';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +8,7 @@ import type { SurveyPreview } from '../interfaces/survey';
 export class SurveyService {
   private dbService = inject(DbService);
 
-  async getAllSurvey(): Promise<SurveyPreview[]> {
+  async getAllSurvey(): Promise<Survey[]> {
     const today = new Date().toISOString().split('T')[0];
 
     const { data, error } = await this.dbService.supabase
@@ -22,6 +22,6 @@ export class SurveyService {
       throw new Error(error.message);
     }
 
-    return (data ?? []) as SurveyPreview[];
+    return (data ?? []) as Survey[];
   }
 }
