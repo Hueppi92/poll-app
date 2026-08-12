@@ -12,8 +12,11 @@ export class SurveyList {
   private surveyService = inject(SurveyService);
 
   constructor() {
-    this.surveyService.getAllSurvey();
+    /* this.surveyService.getAllSurvey(); */
     this.surveyService.getQuestionsBySurveyId(1);
     this.surveyService.getQuestionsBySurveyId(2);
+    this.surveyService.getAnswersByQuestionId(1);
+    this.surveyService.getAnswersByQuestionId(4);
+    
 }
 }

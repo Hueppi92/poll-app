@@ -16,7 +16,7 @@ export interface Question {
 
 export interface Answer {
     id: number;
-    question_id: number;
+    question_id_survey_id: number;
     answer_text: string;
     this_answer_count: number;
 }
