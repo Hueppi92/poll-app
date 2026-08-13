@@ -13,9 +13,9 @@ export class SurveyService {
 
     const { data, error } = await this.dbService.supabase
       .from('survey')
-      .select('id, category, description, name, is_active, ends_at')
+      .select('id, category, description, title, is_active, ends_at')
       .eq('is_active', true)
-      .gt('ends_at', today)
+      .gte('ends_at', today)
       .order('ends_at', { ascending: true });
 
     if (error) {
@@ -50,5 +50,28 @@ export class SurveyService {
     console.log(data);
     return (data ?? []) as Answer[];
   }
+
+  async getEndingSoonSurveys(): Promise<Survey[]> {
+  const today = new Date();
+  const in5Days = new Date();
+  in5Days.setDate(today.getDate() + 5);
+
+  const todayStr = today.toISOString().split('T')[0];
+  const in5DaysStr = in5Days.toISOString().split('T')[0];
+
+  const { data, error } = await this.dbService.supabase
+    .from('survey')
+    .select('id, category, description, title, is_active, ends_at')
+    .eq('is_active', true)
+    .gte('ends_at', todayStr)
+    .lte('ends_at', in5DaysStr)
+    .order('ends_at', { ascending: true });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+  console.log(data);
+  return (data ?? []) as Survey[];
+}
 
 }

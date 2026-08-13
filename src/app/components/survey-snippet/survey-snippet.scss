@@ -1,0 +1,18 @@
+:host(.ending-soon-snippet) {
+  display: flex;
+  background-color: #fbf5ff;
+  border-radius: 0 80px 0 0;
+  height: 310px;
+  width: 321px;
+}
+
+
+
+:host(.all-surveys-snippet) {
+  display: flex;
+  background-color:rgba(217, 217, 217, 0.08);
+  border-radius: 0 80px 0 0;
+  height: 127px;
+  width: 513px;
+  color: rgba(255, 255, 255, 1);
+}

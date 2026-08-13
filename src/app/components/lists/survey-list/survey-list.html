@@ -1,0 +1,13 @@
+<section aria-labelledby="survey-list-title">
+	<h1 id="survey-list-title">Your Surveys</h1>
+
+	<div class="survey-list">
+		@for (survey of surveys(); track survey.id) {
+		
+<app-survey-snippet class="all-surveys-snippet" [survey]="survey" />
+		} @empty {
+			<p>No active surveys are available.</p>
+		}
+	</div>
+</section>
+

@@ -2,7 +2,7 @@ export interface Survey {
     id: number;
     category: string;
     description: string;
-    name: string;
+    title: string;
     is_active: boolean;
     ends_at: string;
 }
@@ -20,5 +20,3 @@ export interface Answer {
     answer_text: string;
     this_answer_count: number;
 }
-
-

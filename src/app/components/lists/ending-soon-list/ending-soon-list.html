@@ -1,0 +1,12 @@
+<section class="endingSoon">
+  <h1>Your Surveys</h1>
+ <p>Ending Soon</p>
+  <div class="endingSoon__container">
+   
+    @for (survey of surveys(); track survey.id) {
+      <app-survey-snippet class="ending-soon-snippet" [survey]="survey" variant="ending-soon"></app-survey-snippet>
+    } @empty {
+      <p>No surveys are ending soon.</p>
+    }
+  </div>
+</section>
