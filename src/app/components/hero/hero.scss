@@ -1,12 +1,14 @@
 .hero {
     display:flex;
-    max-width: 1220px;
+    max-width: 1218px;
+
     &-left {
-    width: 712px;
+    width: 60%;
     height: 380px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 90px;
 
      & h1{
         font-size: 100px;
@@ -50,7 +52,7 @@
     }
 
     &-right {
-        width: 508px;
+        width: 40%;
         height: 380px;
         display: flex;
         align-items: center;

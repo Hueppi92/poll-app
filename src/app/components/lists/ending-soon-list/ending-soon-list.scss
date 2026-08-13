@@ -1,13 +1,26 @@
 .endingSoon{
-  display: flex;
-  flex-direction:column;
+    max-width: 1042px;
+    justify-content: center;
+    margin: 0 auto;
 & h1 {
     text-align: center;
+    font-family: 'Nerko One';
+    font-size: 72px;
+    color: var(--primary-orange);
 }
- &__container{
+& p {
+    text-align: left;
+    font-family: 'Mulish';
+    font-size: 32px;
+    color: rgba(255, 255, 255, 1);
+}
+
+&__container{
     display: flex;
     flex-direction:row;
-    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    gap: 32px;
   }
 
 }

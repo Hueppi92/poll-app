@@ -1,11 +1,11 @@
-<article class="survey-snippet" [class.ending-soon]="variant() === 'ending-soon'">
+<article class="survey-snippet" >
   <p class="categoryBatch">{{ survey().category }}</p>
-  <h2 class="description">{{ survey().title }}</h2>
+  <h2 class="title">{{ survey().title }}</h2>
 
-  @if (variant() === 'ending-soon') {
+  
     <p class="endingInDays">
       Ends in {{ remainingDays() }}
       {{ remainingDays() === 1 ? 'day' : 'days' }}
     </p>
-  }
+  
 </article>

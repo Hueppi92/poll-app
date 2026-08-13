@@ -1,0 +1,51 @@
+.survey-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-width:1024px;
+    width:100%;
+    gap: 10px;
+    margin-bottom: 40px;
+
+    button {
+      box-sizing: border-box;
+      width: 119px;
+      height: 25px;
+      padding: 2px 10px;
+      border-radius: 20px;
+      border: 0;
+      font-family: 'Nokora';
+      font-size: 16px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 100%;
+      color: var(--primary-purple);
+      background-color: transparent;
+    }
+
+    .survey-list__filter--active {
+      background-color: var(--primary-orange);
+    }
+
+    .survey-list__filter--inactive {
+      width: 106px;
+      background-color: rgba(254, 233, 212, 1);
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 513px);
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+}
