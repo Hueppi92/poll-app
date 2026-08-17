@@ -13,8 +13,7 @@ export class SurveyService {
 
     const { data, error } = await this.dbService.supabase
       .from('survey')
-      .select('id, category, description, title, is_active, ends_at')
-      .eq('is_active', true)
+      .select('id, category, description, title, ends_at')
       .gte('ends_at', today)
       .order('ends_at', { ascending: true });
 
@@ -23,6 +22,20 @@ export class SurveyService {
     }
    console.log(data);
     return (data ?? []) as Survey[];
+  }
+
+  async getSurveyById(surveyId: number): Promise<Survey | null> {
+    const { data, error } = await this.dbService.supabase
+      .from('survey')
+      .select('id, category, description, title, ends_at')
+      .eq('id', surveyId)
+      .single();
+
+    if (error) {
+      throw new Error(error.message);
+    }
+    console.log(data);
+    return (data ?? null) as Survey | null;
   }
 
   async getQuestionsBySurveyId(surveyId: number): Promise<Question[]> {
@@ -61,8 +74,7 @@ export class SurveyService {
 
   const { data, error } = await this.dbService.supabase
     .from('survey')
-    .select('id, category, description, title, is_active, ends_at')
-    .eq('is_active', true)
+    .select('id, category, description, title, ends_at')
     .gte('ends_at', todayStr)
     .lte('ends_at', in5DaysStr)
     .order('ends_at', { ascending: true });
@@ -72,6 +84,24 @@ export class SurveyService {
   }
   console.log(data);
   return (data ?? []) as Survey[];
+}
+
+async getCategories(): Promise<string[]> {
+  const { data, error } = await this.dbService.supabase
+    .from('survey')
+    .select('category');
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return [
+    ...new Set(
+      (data ?? [])
+        .map((item: { category: string }) => item.category.trim())
+        .filter(Boolean)
+    ),
+  ].sort();
 }
 
 }

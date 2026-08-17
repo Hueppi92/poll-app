@@ -3,7 +3,6 @@ export interface Survey {
     category: string;
     description: string;
     title: string;
-    is_active: boolean;
     ends_at: string;
 }
 
