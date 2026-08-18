@@ -1,11 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter, map, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   imports: [],
-  template: '<div class="header">' +
-    '<img src="assets/images/Logo.png" alt="Logo" />' +
-  '</div>',
+  templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header {}
+export class Header {
+  private router = inject(Router);
+
+  protected currentUrl = toSignal(
+    this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd),
+      map((event) => event.urlAfterRedirects),
+      startWith(this.router.url),
+    ),
+    { initialValue: this.router.url },
+  );
+
+  protected isHomePage = computed(() => this.currentUrl() === '/');
+}

@@ -4,11 +4,12 @@ import {
   computed,
   input,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import type { Survey } from '../interfaces/survey';
 
 @Component({
   selector: 'app-survey-snippet',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './survey-snippet.html',
   styleUrl: './survey-snippet.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

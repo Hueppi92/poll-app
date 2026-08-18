@@ -104,4 +104,14 @@ async getCategories(): Promise<string[]> {
   ].sort();
 }
 
+async getFullSurveyData(surveyId: number): Promise<{ survey: Survey; questions: Question[]; answers: Answer[] }> {
+  const survey = await this.getSurveyById(surveyId);
+  if (!survey) {
+    throw new Error(`Survey with ID ${surveyId} not found`);
+  }
+  const questions = await this.getQuestionsBySurveyId(surveyId);
+  const answers = await Promise.all(questions.map(q => this.getAnswersByQuestionId(q.id)));
+  return { survey, questions, answers: answers.flat() };
+}
+
 }

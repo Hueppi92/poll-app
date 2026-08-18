@@ -1,1 +1,29 @@
-<p>single-survey-view works!</p>
+<section class="singleSurveyView">
+ 
+
+<div class="singleSurvey">
+    @if (survey(); as currentSurvey) {
+        <p class="endDate">{{ currentSurvey.ends_at }}</p>
+        <p class="categoryBatch">{{ currentSurvey.category }}</p>
+        <h2 class="title">{{ currentSurvey.title }}</h2>
+        <p class="description">{{ currentSurvey.description }}</p>
+
+        @for (question of questions(); track question.id) {
+            <app-question [question]="question"></app-question>
+        }
+
+        <button class="submitButton" (click)='submitSurvey()'>Complete survey</button>
+    }
+    
+</div>
+
+<div class="results">
+  <!--   <h2 class="resultsTitle">Results</h2>
+    @for (result of results(); track result.id) {
+        <div class="result">
+            <p class="answerText">{{ result.answer_text }}</p>
+            <p class="votes">{{ result.votes }} votes</p>
+        </div>
+    } -->
+</div>
+</section>
