@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SurveyService } from '../service/survey-service';
 import { Question } from '../question/question';
@@ -16,6 +16,11 @@ export class SingleSurveyView implements OnInit {
 
   survey = signal<Survey | null>(null);
   questions = signal<QuestionModel[]>([]);
+
+  isExpired = computed(() => {
+    const survey = this.survey();
+    return survey ? new Date(survey.ends_at) < new Date() : false;
+  });
 
   async ngOnInit() {
     const surveyId = Number(this.route.snapshot.paramMap.get('id'));

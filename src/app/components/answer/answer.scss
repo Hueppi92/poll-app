@@ -1,0 +1,26 @@
+:host {
+	display: block;
+}
+
+.answer {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin-bottom: 14px;
+
+	&__checkbox {
+		width: 16px;
+		height: 16px;
+		margin-top: 3px;
+		accent-color: var(--primary-orange);
+		flex: 0 0 auto;
+	}
+
+	&__text {
+		margin: 0;
+		color: rgba(53, 39, 58, 0.88);
+		font-family: 'Mulish', sans-serif;
+		font-size: 16px;
+		line-height: 1.35;
+	}
+}

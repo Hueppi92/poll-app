@@ -1,5 +1,5 @@
 <div class="answer">
-    <input type="checkbox" id="answer-{{ answer().id }}" name="answer-{{ answer().id }}" />
-    <p class="answerText">{{ answer().answer_text }}</p>
+    <input class="answer__checkbox" type="checkbox" id="answer-{{ answer().id }}" name="answer-{{ answer().id }}" />
+    <p class="answer__text">{{ index() | numeration:'alpha' }} {{ answer().answer_text }}</p>
 
 </div>

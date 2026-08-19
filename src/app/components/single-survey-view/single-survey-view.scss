@@ -1,11 +1,113 @@
-.singleSurveyView {
+:host {
+    display: block;
+    color: var(--primary-purple);
+}
+
+.survey-view {
     min-height: 100vh;
-    background-color: rgba(142, 112, 153, 0.1);
     max-width: 1220px;
-}
-
-
-
-html, body, header, .singleSurvey {
+    margin: 0 auto;
+    padding: 30px 24px 48px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.9fr);
+    gap: 28px;
+    box-sizing: border-box;
     background-color: var(--secondary-white);
+    width: 100%;
+
+    &__card,
+    &__results {
+        background-color: rgba(251, 245, 255, 0.88);
+        border-radius: 0 160px 0 0;
+        padding: 34px 28px 30px;
+        box-sizing: border-box;
+        color: var(--primary-purple);
+    }
+
+    &__card {
+        min-width: 0;
+    }
+
+    &__results {
+        border-radius: 0 110px 0 0;
+    }
+
+    &__header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px 16px;
+        margin-bottom: 18px;
+    }
+
+    &__status {
+        margin: 0;
+        padding: 6px 12px 4px;
+        border-radius: 0 14px 0 0;
+        background-color: var(--primary-orange);
+        color: var(--primary-purple);
+        font-family: 'Mulish', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1;
+
+        &--expired {
+            background-color: var(--secondary-gray);
+        }
+    }
+
+    &__end-date,
+    &__category {
+        margin: 6px 0 0;
+        color: rgba(53, 39, 58, 0.78);
+        font-family: 'Mulish', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    &__title {
+        margin: 0 0 14px;
+        color: var(--primary-orange);
+        font-family: 'Nerko One', sans-serif;
+        font-size: clamp(2.6rem, 4vw, 4.2rem);
+        font-weight: 400;
+        line-height: 0.92;
+        letter-spacing: 0.01em;
+        max-width: 9ch;
+    }
+
+    &__description {
+        margin: 0 0 28px;
+        max-width: 580px;
+        color: rgba(53, 39, 58, 0.9);
+        font-family: 'Mulish', sans-serif;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    &__questions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px 32px;
+    }
+
+    &__submit {
+        display: block;
+        margin-top: 28px;
+        margin-left: auto;
+        padding: 12px 18px;
+        border: 0;
+        border-radius: 14px 14px 14px 0;
+        background-color: var(--secondary-orange);
+        color: var(--primary-purple);
+        font-family: 'Mulish', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        
+    }
 }
+
+
+

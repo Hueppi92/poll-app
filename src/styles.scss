@@ -29,11 +29,12 @@ font-display: swap;
     --secondary-white: rgba(255, 255, 255, 1);
     --secondary-orange: rgba(255, 207, 161, 1);
     --primary-purple: rgba(53, 39, 58, 1);
+    --secondary-gray: rgba(142, 112, 153, 0.1);
     --font-family-main: 'Nerko One', sans-serif;
 }
 
 body {
-    background-color: rgba(53, 39, 58, 1);
+    background-color: var(--secondary-white);
     margin: 0 auto;
     max-width: 1440px;
 }

@@ -1,28 +1,38 @@
-<section class="singleSurveyView">
+<section class="survey-view">
  
 
-<div class="singleSurvey">
+<div class="survey-view__card">
     @if (survey(); as currentSurvey) {
-        <p class="endDate">{{ currentSurvey.ends_at }}</p>
-        <p class="categoryBatch">{{ currentSurvey.category }}</p>
-        <h2 class="title">{{ currentSurvey.title }}</h2>
-        <p class="description">{{ currentSurvey.description }}</p>
+        <div class="survey-view__header">
+            @if (isExpired()) {
+                <p class="survey-view__status survey-view__status--expired">Expired</p>
+            } @else {
+                <p class="survey-view__status survey-view__status--open">Published</p>
+            }
+            <p class="survey-view__end-date">{{ currentSurvey.ends_at }}</p>
+            <p class="survey-view__category">{{ currentSurvey.category }}</p>
+        </div>
 
-        @for (question of questions(); track question.id) {
-            <app-question [question]="question"></app-question>
-        }
+        <h1 class="survey-view__title">{{ currentSurvey.title }}</h1>
+        <p class="survey-view__description">{{ currentSurvey.description }}</p>
 
-        <button class="submitButton" (click)='submitSurvey()'>Complete survey</button>
+        <div class="survey-view__questions">
+            @for (question of questions(); track question.id; let i = $index) {
+                <app-question [question]="question" [index]="i"></app-question>
+            }
+        </div>
+
+        <button class="survey-view__submit" (click)='submitSurvey()'>Complete survey</button>
     }
     
 </div>
 
-<div class="results">
-  <!--   <h2 class="resultsTitle">Results</h2>
+<div class="survey-view__results">
+  <!--   <h2 class="survey-view__results-title">Results</h2>
     @for (result of results(); track result.id) {
-        <div class="result">
-            <p class="answerText">{{ result.answer_text }}</p>
-            <p class="votes">{{ result.votes }} votes</p>
+        <div class="survey-view__result">
+            <p class="survey-view__result-text">{{ result.answer_text }}</p>
+            <p class="survey-view__result-votes">{{ result.votes }} votes</p>
         </div>
     } -->
 </div>
