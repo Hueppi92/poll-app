@@ -1,7 +1,24 @@
 <section class="survey-list">
 	<div class="survey-list__header">
-		<button class="survey-list__filter--active" type="button">Active survey</button>
-		<button class="survey-list__filter--inactive" type="button">Past survey</button>
+		<button
+			class="survey-list__filter--active"
+			[class.survey-list__filter--inactive]="selectedStatus() !== 'active'"
+			[class.survey-list__filter--selected]="selectedStatus() === 'active'"
+			type="button"
+			[attr.aria-pressed]="selectedStatus() === 'active'"
+			(click)="onStatusChange('active')"
+		>
+			Active survey
+		</button>
+		<button
+			class="survey-list__filter--inactive survey-list__filter--past"
+			[class.survey-list__filter--selected]="selectedStatus() === 'past'"
+			type="button"
+			[attr.aria-pressed]="selectedStatus() === 'past'"
+			(click)="onStatusChange('past')"
+		>
+			Past survey
+		</button>
 		<label class="survey-list__category-filter">
 			<span>sort by</span>
 			<select [value]="selectedCategory()" (change)="onCategoryChange($event)">
@@ -20,7 +37,7 @@
 			@for (survey of filteredSurveys(); track survey.id) {
 				<app-survey-snippet class="all-surveys-snippet" [survey]="survey" />
 			} @empty {
-				<p>No active surveys are available.</p>
+				<p>No {{ selectedStatus() }} surveys are available for this category.</p>
 			}
 	</div>
 </section>

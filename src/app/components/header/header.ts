@@ -22,4 +22,8 @@ export class Header {
   );
 
   protected isHomePage = computed(() => this.currentUrl() === '/');
+
+  protected createSurvey(): void {
+    this.router.navigateByUrl('/survey/new');
+  }
 }

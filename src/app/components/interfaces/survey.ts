@@ -1,22 +1,24 @@
 interface Entity {
-    readonly id: number;
+    id: number;
 }
 
 export interface Survey extends Entity {
-    readonly category: string;
-    readonly description: string;
-    readonly title: string;
-    readonly ends_at: string;
+    category: string;
+    description: string;
+     title: string;
+     ends_at: string;
+     done_count: number;
 }
 
 export interface Question extends Entity {
-    readonly survey_id: number;
-    readonly answer_count: number;
-    readonly question_text: string;
+     survey_id: number;
+     answer_count: number;
+     question_text: string;
+     allow_multiple: boolean;
 }
 
 export interface Answer extends Entity {
-    readonly question_id_survey_id: number;
-    readonly answer_text: string;
-    readonly this_answer_count: number;
+    question_id_survey_id: number;
+     answer_text: string;
+     this_answer_count: number;
 }

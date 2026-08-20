@@ -1,6 +1,12 @@
 <div class="question">
     <h3 class="question__text">{{ index() | numeration }} {{ question().question_text }}</h3>
     @for (answer of answers(); track answer.id; let i = $index) {
-        <app-answer [answer]="answer" [index]="i"></app-answer>
+        <app-answer
+            [answer]="answer"
+            [index]="i"
+            [selected]="selectedAnswerIds().has(answer.id)"
+            [disabled]="disabled()"
+            (toggled)="onAnswerToggled($event)"
+        ></app-answer>
     }
 </div>

@@ -1,5 +1,5 @@
 <div class="answer">
-    <input class="answer__checkbox" type="checkbox" id="answer-{{ answer().id }}" name="answer-{{ answer().id }}" />
+    <input class="answer__checkbox" type="checkbox" id="checkbox-{{ answer().id }}" [checked]="selected()" [disabled]="disabled()" (change)="onToggle($event)" name="answer-{{ answer().id }}" />
     <p class="answer__text">{{ index() | numeration:'alpha' }} {{ answer().answer_text }}</p>
 
 </div>

@@ -1,0 +1,76 @@
+:host {
+	display: block;
+}
+
+.result-snippet {
+	&__heading {
+		margin: 0 0 24px;
+		font-family: 'Nerko One', sans-serif;
+		font-size: 2rem;
+		font-weight: 400;
+		color: var(--primary-purple);
+	}
+
+	&__live {
+		color: var(--primary-orange);
+	}
+
+	&__question {
+		margin-bottom: 28px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__question-text {
+		margin: 0 0 14px;
+		color: var(--primary-purple);
+		font-family: 'Mulish', sans-serif;
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+
+	&__answer-row {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 10px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__answer-label {
+		flex: 0 0 auto;
+		color: rgba(53, 39, 58, 0.6);
+		font-family: 'Mulish', sans-serif;
+		font-size: 14px;
+	}
+
+	&__bar-track {
+		flex: 1 1 auto;
+		height: 10px;
+		border-radius: 6px;
+		background-color: var(--secondary-gray);
+		overflow: hidden;
+	}
+
+	&__bar-fill {
+		height: 100%;
+		border-radius: 6px;
+		background-color: var(--primary-orange);
+		transition: width 0.3s ease;
+	}
+
+	&__answer-percent {
+		flex: 0 0 40px;
+		text-align: right;
+		color: var(--primary-orange);
+		font-family: 'Mulish', sans-serif;
+		font-size: 14px;
+		font-weight: 700;
+	}
+}

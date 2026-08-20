@@ -3,14 +3,15 @@
 
 <div class="survey-view__card">
     @if (survey(); as currentSurvey) {
-        <div class="survey-view__header">
-            @if (isExpired()) {
+         @if (isExpired()) {
                 <p class="survey-view__status survey-view__status--expired">Expired</p>
             } @else {
                 <p class="survey-view__status survey-view__status--open">Published</p>
             }
-            <p class="survey-view__end-date">{{ currentSurvey.ends_at }}</p>
-            <p class="survey-view__category">{{ currentSurvey.category }}</p>
+        <div class="survey-view__header">
+           
+            <p class="survey-view__end-date">Ends on {{ currentSurvey.ends_at }}</p>
+            <p class="survey-view__category">Category: {{ currentSurvey.category }}</p>
         </div>
 
         <h1 class="survey-view__title">{{ currentSurvey.title }}</h1>
@@ -18,22 +19,30 @@
 
         <div class="survey-view__questions">
             @for (question of questions(); track question.id; let i = $index) {
-                <app-question [question]="question" [index]="i"></app-question>
+                <app-question
+                    [question]="question"
+                    [index]="i"
+                    [selectedAnswerIds]="pendingSelections()"
+                    [disabled]="submitted()"
+                    (answerToggled)="onAnswerToggled($event)"
+                ></app-question>
             }
         </div>
 
-        <button class="survey-view__submit" (click)='submitSurvey()'>Complete survey</button>
+        <button class="survey-view__submit" [disabled]="submitted() || pendingSelections().size === 0" (click)='submitSurvey()'>
+            {{ submitted() ? 'Survey completed' : 'Complete survey' }}
+        </button>
     }
     
 </div>
 
 <div class="survey-view__results">
-  <!--   <h2 class="survey-view__results-title">Results</h2>
-    @for (result of results(); track result.id) {
-        <div class="survey-view__result">
-            <p class="survey-view__result-text">{{ result.answer_text }}</p>
-            <p class="survey-view__result-votes">{{ result.votes }} votes</p>
-        </div>
-    } -->
+    @if (survey(); as currentSurvey) {
+        <app-result-snippet [survey]="currentSurvey" [pendingSelections]="submitted() ? emptySelections : pendingSelections()"></app-result-snippet>
+    }
 </div>
 </section>
+
+@if (showToast()) {
+    <p class="survey-view__toast">Survey completed</p>
+}

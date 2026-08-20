@@ -1,10 +1,11 @@
 :host {
     display: block;
     color: var(--primary-purple);
+    
 }
 
 .survey-view {
-    min-height: 100vh;
+    height: 80vh;
     max-width: 1220px;
     margin: 0 auto;
     padding: 30px 24px 48px;
@@ -15,35 +16,54 @@
     background-color: var(--secondary-white);
     width: 100%;
 
-    &__card,
-    &__results {
+    &__card     {
+        max-height: 90vh;
+        width: 702px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         background-color: rgba(251, 245, 255, 0.88);
+        border-radius: 0 160px 0 0;
+        padding: 40px;
+        box-sizing: border-box;
+        color: var(--primary-purple);
+    }
+    &__results {
+        max-height: 90vh;
+        width: 315px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+                &::-webkit-scrollbar {
+            display: none;
+        }
+      
         border-radius: 0 160px 0 0;
         padding: 34px 28px 30px;
         box-sizing: border-box;
-        color: var(--primary-purple);
     }
 
     &__card {
         min-width: 0;
     }
 
-    &__results {
-        border-radius: 0 110px 0 0;
-    }
-
+    
     &__header {
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
         justify-content: space-between;
         gap: 10px 16px;
+       
         margin-bottom: 18px;
     }
 
     &__status {
+        width: 94px;
+        height: 26px;
         margin: 0;
-        padding: 6px 12px 4px;
+        padding: 3px 12px 0px 12px;
         border-radius: 0 14px 0 0;
         background-color: var(--primary-orange);
         color: var(--primary-purple);
@@ -60,30 +80,30 @@
     &__end-date,
     &__category {
         margin: 6px 0 0;
-        color: rgba(53, 39, 58, 0.78);
+        color:rgba(53, 39, 58, 1);
         font-family: 'Mulish', sans-serif;
-        font-size: 16px;
-        font-weight: 500;
+        font-size: 14px;
     }
 
     &__title {
-        margin: 0 0 14px;
+       /*  margin: 0 0 14px; */
         color: var(--primary-orange);
         font-family: 'Nerko One', sans-serif;
-        font-size: clamp(2.6rem, 4vw, 4.2rem);
+        font-size: 56px;
         font-weight: 400;
-        line-height: 0.92;
-        letter-spacing: 0.01em;
-        max-width: 9ch;
+        line-height: 50px;
+        letter-spacing: 0%;
+        
     }
 
     &__description {
         margin: 0 0 28px;
         max-width: 580px;
-        color: rgba(53, 39, 58, 0.9);
+        color: rgba(53, 39, 58, 1);
         font-family: 'Mulish', sans-serif;
         font-size: 18px;
-        line-height: 1.4;
+        font-style: bold;
+        line-height: 1;
     }
 
     &__questions {
@@ -105,7 +125,28 @@
         font-size: 16px;
         font-weight: 700;
         cursor: pointer;
-        
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+
+    &__toast {
+        position: fixed;
+        left: 50%;
+        bottom: 32px;
+        transform: translateX(-50%);
+        margin: 0;
+        padding: 14px 24px;
+        border-radius: 14px 14px 14px 0;
+        background-color: var(--primary-purple);
+        color: var(--secondary-white);
+        font-family: 'Mulish', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        box-shadow: 0 8px 24px rgba(53, 39, 58, 0.25);
+        z-index: 10;
     }
 }
 

@@ -31,13 +31,16 @@
       background-color: transparent;
     }
 
-    .survey-list__filter--active {
-      background-color: var(--primary-orange);
+    .survey-list__filter--inactive {
+      background-color: rgba(254, 233, 212, 1);
     }
 
-    .survey-list__filter--inactive {
+    .survey-list__filter--past {
       width: 106px;
-      background-color: rgba(254, 233, 212, 1);
+    }
+
+    .survey-list__filter--selected {
+      background-color: var(--primary-orange);
     }
 
     .survey-list__category-filter {
