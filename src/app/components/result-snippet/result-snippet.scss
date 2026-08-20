@@ -73,4 +73,21 @@
 		font-size: 14px;
 		font-weight: 700;
 	}
+
+	&__empty-hint {
+		margin: 0 0 40px;
+		color: rgba(53, 39, 58, 0.7);
+		font-family: 'Mulish', sans-serif;
+		font-size: 16px;
+		line-height: 1.4;
+	}
+
+	&__empty-text {
+		margin: 0;
+		text-align: center;
+		color: var(--primary-purple);
+		font-family: 'Mulish', sans-serif;
+		font-size: 18px;
+		font-weight: 600;
+	}
 }

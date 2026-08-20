@@ -48,6 +48,11 @@ export class ResultSnippet implements OnInit, OnDestroy {
     });
   });
 
+  // whether there's anything to show yet, including a not-yet-submitted live preview
+  hasResults = computed<boolean>(() =>
+    this.liveResults().some((row) => row.answers.some((answer) => answer.this_answer_count > 0)),
+  );
+
   async ngOnInit() {
     await this.reload();
     this.subscribeToLiveUpdates();

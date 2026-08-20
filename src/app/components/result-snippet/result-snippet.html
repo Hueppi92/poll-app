@@ -1,19 +1,24 @@
 <article class="result-snippet">
   <h2 class="result-snippet__heading">Survey results <span class="result-snippet__live">LIVE</span></h2>
 
-  @for (row of liveResults(); track row.question.id; let qi = $index) {
-    <div class="result-snippet__question">
-      <h3 class="result-snippet__question-text">{{ qi | numeration }} {{ row.question.question_text }}</h3>
+  @if (hasResults()) {
+    @for (row of liveResults(); track row.question.id; let qi = $index) {
+      <div class="result-snippet__question">
+        <h3 class="result-snippet__question-text">{{ qi | numeration }} {{ row.question.question_text }}</h3>
 
-      @for (answer of row.answers; track answer.id; let ai = $index) {
-        <div class="result-snippet__answer-row">
-          <span class="result-snippet__answer-label">{{ ai | numeration:'alpha' }}</span>
-          <div class="result-snippet__bar-track">
-            <div class="result-snippet__bar-fill" [style.width.%]="answer.percent"></div>
+        @for (answer of row.answers; track answer.id; let ai = $index) {
+          <div class="result-snippet__answer-row">
+            <span class="result-snippet__answer-label">{{ ai | numeration:'alpha' }}</span>
+            <div class="result-snippet__bar-track">
+              <div class="result-snippet__bar-fill" [style.width.%]="answer.percent"></div>
+            </div>
+            <span class="result-snippet__answer-percent">{{ answer.percent }}%</span>
           </div>
-          <span class="result-snippet__answer-percent">{{ answer.percent }}%</span>
-        </div>
-      }
-    </div>
+        }
+      </div>
+    }
+  } @else {
+    <p class="result-snippet__empty-hint">Results will be shown here after participants complete the survey.</p>
+    <p class="result-snippet__empty-text">There are no answers yet.</p>
   }
 </article>
